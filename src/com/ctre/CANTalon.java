@@ -476,7 +476,7 @@ public class CANTalon
 	 * Resets the accumulated integral error and disables the controller.
 	 *
 	 * <p>
-	 * The only difference between this and {@link PIDController#reset} is that
+	 * The only difference between this and PIDController#reset is that
 	 * the PIDController also resets the previous error for the D term, but the
 	 * difference should have minimal effect as it will only last one cycle.
 	 */
@@ -1597,8 +1597,6 @@ public class CANTalon
 	 *            it is returned as is.
 	 * @return fullRotations in native engineering units of the Talon SRX
 	 *         firmware.
-	 * @see configPotentiometerTurns
-	 * @see configEncoderCodesPerRev
 	 */
 	private int scaleRotationsToNativeUnits(FeedbackDevice devToLookup, double fullRotations) {
 		/* first assume we don't have config info, prep the default return */
@@ -1621,8 +1619,6 @@ public class CANTalon
 	 *            which case it is returned as is.
 	 * @return sensor velocity in native engineering units of the Talon SRX
 	 *         firmware.
-	 * @see configPotentiometerTurns
-	 * @see configEncoderCodesPerRev
 	 */
 	private int scaleVelocityToNativeUnits(FeedbackDevice devToLookup, double rpm) {
 		/* first assume we don't have config info, prep the default return */
@@ -1644,8 +1640,6 @@ public class CANTalon
 	 *            well to match the behavior in the 2015 season.
 	 * @return double precision number of rotations, unless config was never
 	 *         performed.
-	 * @see configPotentiometerTurns
-	 * @see configEncoderCodesPerRev
 	 */
 	private double scaleNativeUnitsToRotations(FeedbackDevice devToLookup, int nativePos) {
 		/* first assume we don't have config info, prep the default return */
@@ -1667,8 +1661,6 @@ public class CANTalon
 	 *            well to match the behavior in the 2015 season.
 	 * @return double precision of sensor velocity in RPM, unless config was
 	 *         never performed.
-	 * @see configPotentiometerTurns
-	 * @see configEncoderCodesPerRev
 	 */
 	private double scaleNativeUnitsToRpm(FeedbackDevice devToLookup, long nativeVel) {
 		/* first assume we don't have config info, prep the default return */
@@ -1885,7 +1877,7 @@ public class CANTalon
 	/**
 	 * Set the Cruise Velocity used in Motion Magic Control Mode.
 	 * 
-	 * @param motmagicCruiseVeloc
+	 * @param motMagicCruiseVeloc
 	 *            Cruise(peak) velocity in RPM.
 	 */
 	public void setMotionMagicCruiseVelocity(double motMagicCruiseVeloc) {
